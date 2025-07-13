@@ -15,4 +15,4 @@ def property_list(request):
     properties = Property.objects.all()
     properties_serializer = PropertySerializer(properties, many=True)
 
-    return JsonResponse(properties_serializer.data, safe=False)
+    return JsonResponse({"properties": properties_serializer.data}, safe=False)
