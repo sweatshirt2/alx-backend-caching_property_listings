@@ -6,9 +6,9 @@ class Cache:
     self._redis = Redis(host="cache", decode_responses=True)
     self._redis.flushdb()
 
-  def set(self, key: str, data) -> bool:
+  def set(self, key: str, data, ttl: int) -> bool:
     try:
-      self._redis.set(key, data)
+      self._redis.set(key, data, ttl)
       return True
     except TimeoutError:
       return False

@@ -9,5 +9,5 @@ def get_all_properties():
     return queryset
   
   queryset = Property.objects.all()
-  cache.set('all_properties', queryset)
+  cache.set('all_properties', queryset, 3600)
   return queryset
