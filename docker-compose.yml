@@ -6,7 +6,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - POSTGRES_DATABASE: properties_listings
+      - POSTGRES_DB: properties_listings
       - POSTGRES_USER: postgres
       - POSTGRES_PASSWORD: postgres
       - POSTGRES_HOST: db
@@ -16,11 +16,11 @@ services:
       - cache
 
   db:
-    image: postgres:15
+    image: postgres:latest
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_DATABASE: properties_listings
+      - POSTGRES_DB: properties_listings
       - POSTGRES_USER: postgres
       - POSTGRES_PASSWORD: postgres
       - POSTGRES_PORT: 5432
@@ -28,7 +28,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   cache:
-    image: redis:7
+    image: redis:latest
     ports:
       - "6379:6379"
     volumes:
