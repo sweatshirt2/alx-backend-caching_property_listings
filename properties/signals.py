@@ -9,3 +9,8 @@ def property_created(sender, instance, created, **kwargs):
   if created:
     cache = Cache()
     cache.delete("all_properties")
+
+@receiver([post_delete, Property])
+def property_deleted(sender, instance, **kwargs):
+  cache = Cache()
+  cache.delete("all_properties")
