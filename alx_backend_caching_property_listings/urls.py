@@ -20,5 +20,5 @@ from properties import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("properties/", views.properties_list),
+    path("properties/", views.property_list),
 ]

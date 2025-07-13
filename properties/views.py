@@ -9,7 +9,7 @@ from .serializers import PropertySerializer
 # Create your views here.
 @cache_page(60 * 15)
 @api_view(["GET"])
-def properties_list(request):
+def property_list(request):
   if request.method == 'GET':
     properties = Property.objects.all()
     properties_serializer = PropertySerializer(properties, many=True)
