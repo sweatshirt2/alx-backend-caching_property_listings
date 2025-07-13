@@ -1,4 +1,5 @@
 from django.views.decorators.cache import cache_page
+from django.http import JsonResponse
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -14,4 +15,4 @@ def property_list(request):
     properties = Property.objects.all()
     properties_serializer = PropertySerializer(properties, many=True)
 
-    return Response(properties_serializer.data)
+    return JsonResponse(properties_serializer.data, safe=False)
